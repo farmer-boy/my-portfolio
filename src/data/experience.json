@@ -1,0 +1,17 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "role": "Full Stack Developer",
+      "company": "Freelance / Personal Projects",
+      "duration": "2025 - Present",
+      "description": "Developing responsive web and mobile applications",
+      "responsibilities": [
+        "Developed responsive web and mobile applications using React.js and Flutter",
+        "Implemented RESTful APIs and database management with SQL and Firebase",
+        "Configured network topologies and simulations using Cisco Packet Tracer",
+        "Optimized code for scalability, performance, and usability"
+      ]
+    }
+  ]
+}

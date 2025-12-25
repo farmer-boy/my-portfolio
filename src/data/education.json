@@ -1,0 +1,12 @@
+{
+  "educations": [
+    {
+      "id": 1,
+      "degree": "Bachelor of Science in Software Engineering",
+      "university": "Superior University – Gold Campus, Lahore",
+      "years": "2023 – 2027",
+      "cgpa": "3.34 / 4.00",
+      "description": "Full-time software engineering program focusing on web development, mobile applications, and networking"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "skillCategories": [
+    {
+      "category": "Languages",
+      "skills": ["JavaScript", "Dart", "C++", "SQL", "Python"]
+    },
+    {
+      "category": "Frontend",
+      "skills": ["React.js", "Flutter", "HTML5", "CSS3", "Tailwind CSS", "ShadCN UI"]
+    },
+    {
+      "category": "Backend",
+      "skills": ["Node.js", "REST APIs", "Firebase", "Strapi CMS"]
+    },
+    {
+      "category": "Databases",
+      "skills": ["MySQL", "PostgreSQL", "Firebase Firestore"]
+    },
+    {
+      "category": "Networking",
+      "skills": ["Cisco Packet Tracer", "Network Simulation", "Configuration"]
+    },
+    {
+      "category": "Tools",
+      "skills": ["Git", "GitHub", "VS Code", "Postman"]
+    },
+    {
+      "category": "Core Competencies",
+      "skills": ["Full Stack Development", "API Integration", "Authentication", "State Management", "CRUD", "OOP", "DSA"]
+    }
+  ]
+}
