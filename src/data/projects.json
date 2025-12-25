@@ -2,62 +2,35 @@
   "projects": [
     {
       "id": 1,
-      "title": "Spray Center Website",
-      "description": "Responsive full stack web application for a service business using React.js, Tailwind CSS, Node.js, and SQL.",
-      "longDescription": "A complete e-commerce platform for a local business to showcase services, manage bookings, and handle customer inquiries. Features include responsive design, admin dashboard, and payment integration.",
-      "techStack": ["React.js", "Node.js", "SQL", "Tailwind CSS"],
-      "features": ["Responsive Design", "Service Management", "Booking System", "Admin Dashboard"],
+      "title": "My Portfolio",
+      "description": "Personal portfolio website built with React, Tailwind CSS, and deployed on Vercel.",
+      "longDescription": "A modern, responsive portfolio website showcasing projects, skills, and experience. Built with React and Tailwind CSS for a sleek design and fast performance.",
+      "techStack": ["React", "Tailwind CSS", "TypeScript", "Vercel"],
+      "features": ["Responsive Design", "Modern UI", "Project Showcase", "Contact Form"],
       "links": {
-        "live": "#",
-        "github": "https://github.com/farmer-boy"
+        "github": "https://github.com/farmer-boy/my-portfolio"
       }
     },
     {
       "id": 2,
       "title": "Kids Learning App",
-      "description": "Interactive multi-screen mobile app with lessons, quizzes, and animations using Flutter and Firebase.",
-      "longDescription": "An educational mobile application designed for children to learn through interactive lessons, engaging quizzes, and fun animations. Includes progress tracking and parental controls.",
-      "techStack": ["Flutter", "Firebase", "REST APIs"],
-      "features": ["Interactive Lessons", "Quiz System", "Progress Tracking", "Animations"],
+      "description": "Interactive mobile app for children with lessons, quizzes, and animations using Flutter and Firebase.",
+      "longDescription": "An educational mobile application designed for children to learn through interactive lessons, engaging quizzes, and fun animations. Features include progress tracking, parental controls, and cloud synchronization.",
+      "techStack": ["Flutter", "Firebase", "Dart", "REST APIs"],
+      "features": ["Interactive Lessons", "Quiz System", "Progress Tracking", "Animations", "Cloud Sync"],
       "links": {
-        "live": "#",
-        "github": "https://github.com/farmer-boy"
+        "github": "https://github.com/farmer-boy/Kids-Learning-App-Flutter-Firebase"
       }
     },
     {
       "id": 3,
-      "title": "University Management System",
-      "description": "Console-based student and course management system with C++ and SQL using data structures like linked lists and trees.",
-      "longDescription": "A comprehensive system for managing university operations including student enrollment, course management, and grade tracking using advanced data structures.",
-      "techStack": ["C++", "SQL", "Data Structures"],
-      "features": ["Student Management", "Course Scheduling", "Grade Tracking", "Data Structure Implementation"],
+      "title": "Khan Traders",
+      "description": "Modern web application built with React, Next.js, and Tailwind CSS, deployed on Vercel.",
+      "longDescription": "A full-featured e-commerce platform built with React and Next.js, featuring server-side rendering, responsive design, and seamless user experience. Deployed on Vercel for optimal performance.",
+      "techStack": ["React", "Next.js", "Tailwind CSS", "Vercel"],
+      "features": ["SSR", "Responsive Design", "E-Commerce Features", "SEO Optimized"],
       "links": {
-        "live": "#",
-        "github": "https://github.com/farmer-boy"
-      }
-    },
-    {
-      "id": 4,
-      "title": "ATM Simulation System",
-      "description": "ATM simulation in C++ with account management, PIN validation, transactions, and OOP concepts.",
-      "longDescription": "A comprehensive ATM system simulator demonstrating object-oriented programming principles with features like account management, secure PIN validation, and multiple transaction types.",
-      "techStack": ["C++", "OOP", "Encapsulation", "Inheritance"],
-      "features": ["Account Management", "PIN Validation", "Transaction Processing", "Balance Inquiry"],
-      "links": {
-        "live": "#",
-        "github": "https://github.com/farmer-boy"
-      }
-    },
-    {
-      "id": 5,
-      "title": "Networking Simulation Projects",
-      "description": "Network topologies and configurations using Cisco Packet Tracer, testing routing, switching, and IP scenarios.",
-      "longDescription": "Advanced network simulations demonstrating complex routing protocols, VLAN configuration, and network security implementations.",
-      "techStack": ["Cisco Packet Tracer", "Networking", "Simulation"],
-      "features": ["Routing Configuration", "VLAN Setup", "IP Configuration", "Network Testing"],
-      "links": {
-        "live": "#",
-        "github": "#"
+        "github": "https://github.com/farmer-boy/Khan-Traders"
       }
     }
   ]
