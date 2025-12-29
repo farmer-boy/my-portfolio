@@ -1,14 +1,25 @@
 import React from "react";
 import projectsData from "../data/projects.json";
 import SectionTitle from "../components/SectionTitle";
+import { useTheme } from "../context/ThemeContext";
 
 const Projects: React.FC = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section className={`w-full py-20 px-4 relative overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+        : 'bg-gradient-to-br from-white via-gray-100 to-white'
+    }`}>
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+        <div className={`absolute top-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-10 ${
+          isDark ? 'bg-purple-500' : 'bg-purple-300'
+        }`}></div>
+        <div className={`absolute bottom-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-5 ${
+          isDark ? 'bg-white' : 'bg-gray-900'
+        }`}></div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -21,21 +32,29 @@ const Projects: React.FC = () => {
           {projectsData.projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-2xl hover:shadow-purple-500/30 overflow-hidden group border border-purple-500 border-opacity-20 hover:border-opacity-100 transition"
+              className={`rounded-2xl shadow-2xl overflow-hidden group border transition ${
+                isDark
+                  ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-purple-500 border-opacity-20 hover:border-opacity-100 hover:shadow-purple-500/30'
+                  : 'bg-gradient-to-br from-gray-100 to-white border-purple-300 border-opacity-20 hover:border-opacity-100 hover:shadow-purple-300/30'
+              }`}
             >
               {/* Project Header */}
-              <div className="h-40 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 flex items-center px-8 relative overflow-hidden group-hover:from-gray-600 group-hover:via-gray-500 group-hover:to-gray-600 transition">
+              <div className={`h-40 flex items-center px-8 relative overflow-hidden transition ${
+                isDark
+                  ? 'bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 group-hover:from-gray-600 group-hover:via-gray-500 group-hover:to-gray-600'
+                  : 'bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 group-hover:from-gray-200 group-hover:via-gray-100 group-hover:to-gray-200'
+              }`}>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition">
-                  <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-400 opacity-10 rounded-full"></div>
+                  <div className={`absolute -top-40 -right-40 w-80 h-80 opacity-10 rounded-full ${isDark ? 'bg-purple-400' : 'bg-purple-300'}`}></div>
                 </div>
-                <h3 className="text-3xl font-bold text-white relative z-10 group-hover:translate-y-0 transition">
+                <h3 className={`text-3xl font-bold relative z-10 group-hover:translate-y-0 transition ${isDark ? 'text-white' : 'text-gray-900'}`}>
                   {project.title}
                 </h3>
               </div>
 
               {/* Project Content */}
               <div className="p-8">
-                <p className="text-gray-300 mb-6 leading-relaxed text-lg">
+                <p className={`mb-6 leading-relaxed text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   {project.description}
                 </p>
 

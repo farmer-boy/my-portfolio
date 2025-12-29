@@ -1,13 +1,22 @@
 import React from "react";
 import experienceData from "../data/experience.json";
 import SectionTitle from "../components/SectionTitle";
+import { useTheme } from "../context/ThemeContext";
 
 const Experience: React.FC = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section className={`w-full py-20 px-4 relative overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+        : 'bg-gradient-to-br from-white via-gray-100 to-white'
+    }`}>
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className={`absolute top-1/3 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-10 ${
+          isDark ? 'bg-purple-500' : 'bg-purple-300'
+        }`}></div>
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
@@ -20,16 +29,26 @@ const Experience: React.FC = () => {
           {experienceData.experiences.map((exp) => (
             <div
               key={exp.id}
-              className="bg-gradient-to-r from-gray-800 to-gray-900 border-l-4 border-purple-500 p-8 rounded-xl hover:shadow-2xl hover:shadow-purple-500/20 transition shadow-lg group"
+              className={`border-l-4 p-8 rounded-xl transition shadow-lg group ${
+                isDark
+                  ? 'bg-gradient-to-r from-gray-800 to-gray-900 border-purple-500 hover:shadow-purple-500/20 hover:shadow-2xl'
+                  : 'bg-gradient-to-r from-gray-100 to-white border-purple-300 hover:shadow-purple-300/20 hover:shadow-2xl'
+              }`}
             >
               <div className="flex justify-between items-start mb-4 flex-col sm:flex-row gap-4">
                 <div>
-                  <h3 className="text-3xl font-bold text-white group-hover:text-purple-300 transition">
+                  <h3 className={`text-3xl font-bold transition ${
+                    isDark ? 'text-white group-hover:text-purple-300' : 'text-gray-900 group-hover:text-purple-600'
+                  }`}>
                     {exp.role}
                   </h3>
-                  <p className="text-purple-400 font-bold text-lg mt-2">{exp.company}</p>
+                  <p className={`font-bold text-lg mt-2 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>{exp.company}</p>
                 </div>
-                <span className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-6 py-2 rounded-full text-sm font-bold whitespace-nowrap">
+                <span className={`px-6 py-2 rounded-full text-sm font-bold whitespace-nowrap ${
+                  isDark
+                    ? 'bg-gradient-to-r from-gray-700 to-gray-600 text-white'
+                    : 'bg-gradient-to-r from-gray-300 to-gray-200 text-gray-900'
+                }`}>
                   {exp.duration}
                 </span>
               </div>

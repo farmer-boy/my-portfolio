@@ -1,16 +1,26 @@
 import React from "react";
 import { resumeData } from "../data/resumeData";
 import SectionTitle from "../components/SectionTitle";
+import { useTheme } from "../context/ThemeContext";
 
 const About: React.FC = () => {
   const { interests } = resumeData;
+  const { isDark } = useTheme();
 
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section className={`w-full py-20 px-4 relative overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+        : 'bg-gradient-to-br from-white via-gray-100 to-white'
+    }`}>
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-white rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+        <div className={`absolute -top-40 -left-40 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-10 ${
+          isDark ? 'bg-purple-500' : 'bg-purple-300'
+        }`}></div>
+        <div className={`absolute -bottom-40 -right-40 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-5 ${
+          isDark ? 'bg-white' : 'bg-gray-900'
+        }`}></div>
       </div>
 
       <div className="container mx-auto max-w-5xl relative z-10">
@@ -20,22 +30,34 @@ const About: React.FC = () => {
         />
 
         <div className="prose prose-lg max-w-none mb-12">
-          <p className="text-gray-300 text-lg leading-relaxed mb-6 bg-gradient-to-r from-gray-800 to-gray-900 p-8 rounded-xl border border-purple-500 border-opacity-20">
+          <p className={`text-lg leading-relaxed mb-6 p-8 rounded-xl border transition ${
+            isDark
+              ? 'text-gray-300 bg-gradient-to-r from-gray-800 to-gray-900 border-purple-500 border-opacity-20'
+              : 'text-gray-700 bg-gradient-to-r from-gray-100 to-white border-purple-300 border-opacity-30'
+          }`}>
             {resumeData.summary}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-purple-500 border-opacity-30 hover:border-opacity-100 transition shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-2xl font-bold text-purple-400 mb-6 flex items-center gap-2">
+          <div className={`p-8 rounded-xl border transition shadow-lg ${
+            isDark
+              ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-purple-500 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-500/20'
+              : 'bg-gradient-to-br from-gray-100 to-white border-purple-300 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-300/20'
+          }`}>
+            <h3 className={`text-2xl font-bold mb-6 flex items-center gap-2 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>
               <span className="text-3xl">📍</span>
               Location
             </h3>
-            <p className="text-gray-300 text-lg font-semibold">{resumeData.location}</p>
+            <p className={`text-lg font-semibold ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{resumeData.location}</p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-900 to-blue-900 p-8 rounded-xl border border-purple-500 border-opacity-30 hover:border-opacity-100 transition shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-2xl font-bold text-purple-300 mb-6 flex items-center gap-2">
+          <div className={`p-8 rounded-xl border transition shadow-lg ${
+            isDark
+              ? 'bg-gradient-to-br from-purple-900 to-blue-900 border-purple-500 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-500/20'
+              : 'bg-gradient-to-br from-purple-100 to-blue-100 border-purple-300 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-300/20'
+          }`}>
+            <h3 className={`text-2xl font-bold mb-6 flex items-center gap-2 ${isDark ? 'text-purple-300' : 'text-purple-700'}`}>
               <span className="text-3xl">📞</span>
               Contact Info
             </h3>

@@ -1,14 +1,25 @@
 import React from "react";
 import skillsData from "../data/skills.json";
 import SectionTitle from "../components/SectionTitle";
+import { useTheme } from "../context/ThemeContext";
 
 const Skills: React.FC = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section className={`w-full py-20 px-4 relative overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+        : 'bg-gradient-to-br from-white via-gray-100 to-white'
+    }`}>
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-white rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+        <div className={`absolute top-1/4 -left-40 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-10 ${
+          isDark ? 'bg-purple-500' : 'bg-purple-300'
+        }`}></div>
+        <div className={`absolute bottom-1/4 -right-40 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-5 ${
+          isDark ? 'bg-white' : 'bg-gray-900'
+        }`}></div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -21,9 +32,17 @@ const Skills: React.FC = () => {
           {skillsData.skillCategories.map((category, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 border border-purple-500 border-opacity-30 p-8 rounded-xl hover:border-opacity-100 transition shadow-2xl hover:shadow-purple-500/20 group"
+              className={`border p-8 rounded-xl transition shadow-2xl group ${
+                isDark
+                  ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-purple-500 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-500/20'
+                  : 'bg-gradient-to-br from-gray-100 to-white border-purple-300 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-300/20'
+              }`}
             >
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-100 to-white bg-clip-text text-transparent mb-6 group-hover:from-white group-hover:to-gray-200 transition">
+              <h3 className={`text-2xl font-bold bg-clip-text text-transparent mb-6 transition ${
+                isDark
+                  ? 'bg-gradient-to-r from-gray-100 to-white group-hover:from-white group-hover:to-gray-200'
+                  : 'bg-gradient-to-r from-gray-900 to-black group-hover:from-black group-hover:to-gray-800'
+              }`}>
                 {category.category}
               </h3>
               <ul className="space-y-3">

@@ -1,13 +1,22 @@
 import React from "react";
 import educationData from "../data/education.json";
 import SectionTitle from "../components/SectionTitle";
+import { useTheme } from "../context/ThemeContext";
 
 const Education: React.FC = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section className={`w-full py-20 px-4 relative overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+        : 'bg-gradient-to-br from-white via-gray-100 to-white'
+    }`}>
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className={`absolute bottom-1/3 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-10 ${
+          isDark ? 'bg-purple-500' : 'bg-purple-300'
+        }`}></div>
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
@@ -20,22 +29,28 @@ const Education: React.FC = () => {
           {educationData.educations.map((edu) => (
             <div
               key={edu.id}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl hover:shadow-purple-500/30 transition p-10 border border-purple-500 border-opacity-30 hover:border-opacity-100 group"
+              className={`rounded-xl shadow-2xl transition p-10 border group ${
+                isDark
+                  ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-purple-500 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-500/30'
+                  : 'bg-gradient-to-br from-gray-100 to-white border-purple-300 border-opacity-30 hover:border-opacity-100 hover:shadow-purple-300/30'
+              }`}
             >
               <div className="flex justify-between items-start mb-6 flex-col sm:flex-row gap-4">
                 <div>
-                  <h3 className="text-3xl font-bold text-white group-hover:text-purple-300 transition">
+                  <h3 className={`text-3xl font-bold transition ${
+                    isDark ? 'text-white group-hover:text-purple-300' : 'text-gray-900 group-hover:text-purple-600'
+                  }`}>
                     {edu.degree}
                   </h3>
-                  <p className="text-purple-400 font-bold text-lg mt-3">
+                  <p className={`font-bold text-lg mt-3 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>
                     {edu.university}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-gray-400 font-semibold text-sm uppercase tracking-wider mb-2">
+                  <p className={`font-semibold text-sm uppercase tracking-wider mb-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                     Graduation
                   </p>
-                  <p className="text-white font-bold text-xl">{edu.years}</p>
+                  <p className={`font-bold text-xl ${isDark ? 'text-white' : 'text-gray-900'}`}>{edu.years}</p>
                 </div>
               </div>
 

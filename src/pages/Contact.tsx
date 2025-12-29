@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { resumeData } from "../data/resumeData";
 import SectionTitle from "../components/SectionTitle";
 import { sendEmail } from "../services/emailService";
+import { useTheme } from "../context/ThemeContext";
 
 const Contact: React.FC = () => {
+  const { isDark } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -87,11 +89,19 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-      {/* Background elements - Black/White theme */}
+    <section className={`w-full py-20 px-4 relative overflow-hidden ${
+      isDark
+        ? 'bg-gradient-to-br from-black via-gray-900 to-black'
+        : 'bg-gradient-to-br from-white via-gray-100 to-white'
+    }`}>
+      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-white rounded-full mix-blend-screen filter blur-3xl opacity-5 animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gray-400 rounded-full mix-blend-screen filter blur-3xl opacity-5 animate-pulse" style={{ animationDelay: "2s" }}></div>
+        <div className={`absolute top-1/4 right-0 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-5 animate-pulse ${
+          isDark ? 'bg-white' : 'bg-gray-900'
+        }`}></div>
+        <div className={`absolute bottom-1/4 left-0 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-5 animate-pulse ${
+          isDark ? 'bg-gray-400' : 'bg-gray-700'
+        }`} style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
@@ -132,16 +142,20 @@ const Contact: React.FC = () => {
               <a
                 key={index}
                 href={contact.href}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-white border-opacity-20 hover:border-opacity-100 transition shadow-lg hover:shadow-white/20 group hover:-translate-y-2 duration-300 animate-slideUp\"
+                className={`p-6 rounded-xl border transition shadow-lg group hover:-translate-y-2 duration-300 animate-slideUp ${
+                  isDark
+                    ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-white border-opacity-20 hover:border-opacity-100 hover:shadow-white/20'
+                    : 'bg-gradient-to-br from-gray-100 to-white border-gray-900 border-opacity-20 hover:border-opacity-100 hover:shadow-gray-900/20'
+                }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl group-hover:scale-125 group-hover:rotate-12 transition duration-300\">{contact.icon}</span>
+                  <span className="text-4xl group-hover:scale-125 group-hover:rotate-12 transition duration-300">{contact.icon}</span>
                   <div>
-                    <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider\">
+                    <p className={`text-sm font-semibold uppercase tracking-wider ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                       {contact.label}
                     </p>
-                    <p className="text-white font-bold text-lg mt-1 group-hover:text-gray-300 transition\">
+                    <p className={`font-bold text-lg mt-1 transition ${isDark ? 'text-white group-hover:text-gray-300' : 'text-gray-900 group-hover:text-gray-700'}`}>
                       {contact.value}
                     </p>
                   </div>
