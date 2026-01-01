@@ -1,7 +1,7 @@
 export const downloadResume = async () => {
   try {
     // Fetch resume from public folder
-    const response = await fetch('/FARHAN RIAZ 01 (1).pdf');
+    const response = await fetch('/resume.pdf');
 
     if (!response.ok) {
       throw new Error('Failed to download resume');
