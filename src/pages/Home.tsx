@@ -1,8 +1,8 @@
 import React from "react";
 import { resumeData } from "../data/resumeData";
 import { Link } from "react-router-dom";
-import { downloadResume } from "../services/resumeService";
 import { useTheme } from "../context/ThemeContext";
+import { SocialIcon } from "../components/SocialIcons";
 
 const Home: React.FC = () => {
   const { isDark } = useTheme();
@@ -62,16 +62,6 @@ const Home: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex gap-4 flex-wrap mb-10 animate-slideDown" style={{ animationDelay: "0.4s" }}>
-            <button
-              onClick={downloadResume}
-              className={`px-8 py-4 rounded-lg transition transform hover:scale-110 hover:-translate-y-1 font-bold shadow-lg hover:shadow-2xl duration-300 cursor-pointer ${
-                isDark
-                  ? 'bg-gradient-to-r from-gray-300 to-white text-black hover:from-white hover:to-gray-200'
-                  : 'bg-gradient-to-r from-gray-900 to-black text-white hover:from-black hover:to-gray-900'
-              }`}
-            >
-              📥 Download Resume
-            </button>
             <Link
               to="/contact"
               className={`px-8 py-4 rounded-lg transition transform hover:scale-110 hover:-translate-y-1 font-bold shadow-lg duration-300 border-2 ${
@@ -93,8 +83,9 @@ const Home: React.FC = () => {
               className={`flex items-center gap-2 transition transform hover:scale-110 ${
                 isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'
               }`}
+              aria-label="LinkedIn"
             >
-              <span className="text-2xl">💼</span>
+              <SocialIcon platform="linkedin" size={24} />
               <span className="hidden sm:inline font-semibold">LinkedIn</span>
             </a>
             <a
@@ -104,8 +95,9 @@ const Home: React.FC = () => {
               className={`flex items-center gap-2 transition transform hover:scale-110 ${
                 isDark ? 'text-gray-400 hover:text-cyan-400' : 'text-gray-700 hover:text-cyan-600'
               }`}
+              aria-label="GitHub"
             >
-              <span className="text-2xl">⭐</span>
+              <SocialIcon platform="github" size={24} />
               <span className="hidden sm:inline font-semibold">GitHub</span>
             </a>
             <a
@@ -115,8 +107,9 @@ const Home: React.FC = () => {
               className={`flex items-center gap-2 transition transform hover:scale-110 ${
                 isDark ? 'text-gray-400 hover:text-pink-400' : 'text-gray-700 hover:text-pink-600'
               }`}
+              aria-label="Instagram"
             >
-              <span className="text-2xl">📷</span>
+              <SocialIcon platform="instagram" size={24} />
               <span className="hidden sm:inline font-semibold">Instagram</span>
             </a>
             <a
@@ -124,8 +117,9 @@ const Home: React.FC = () => {
               className={`flex items-center gap-2 transition transform hover:scale-110 ${
                 isDark ? 'text-gray-400 hover:text-yellow-400' : 'text-gray-700 hover:text-yellow-600'
               }`}
+              aria-label="Email"
             >
-              <span className="text-2xl">📧</span>
+              <SocialIcon platform="email" size={24} />
               <span className="hidden sm:inline font-semibold">Email</span>
             </a>
           </div>

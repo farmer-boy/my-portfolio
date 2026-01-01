@@ -9,13 +9,14 @@ const Navbar: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
 
   const navLinks = [
-    { path: "/", label: "🏠 Home" },
-    { path: "/about", label: "👤 About" },
-    { path: "/skills", label: "⚡ Skills" },
-    { path: "/experience", label: "💼 Experience" },
-    { path: "/education", label: "🎓 Education" },
-    { path: "/projects", label: "🚀 Projects" },
-    { path: "/contact", label: "📧 Contact" },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/skills", label: "Skills" },
+    { path: "/experience", label: "Experience" },
+    { path: "/education", label: "Education" },
+    { path: "/projects", label: "Projects" },
+    { path: "/cv", label: "CV" },
+    { path: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;

@@ -6,6 +6,7 @@ import Skills from "../pages/Skills";
 import Experience from "../pages/Experience";
 import Education from "../pages/Education";
 import Projects from "../pages/Projects";
+import CV from "../pages/CV";
 import Contact from "../pages/Contact";
 
 const AppRoutes: React.FC = () => {
@@ -17,6 +18,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/experience" element={<Experience />} />
       <Route path="/education" element={<Education />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/cv" element={<CV />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );

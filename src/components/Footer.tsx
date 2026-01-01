@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { SocialIcon } from "./SocialIcons";
 
 const Footer: React.FC = () => {
   const { isDark } = useTheme();
@@ -95,8 +96,9 @@ const Footer: React.FC = () => {
                 className={`flex items-center gap-3 transition transform hover:scale-105 ${
                   isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'
                 }`}
+                aria-label="LinkedIn"
               >
-                <span className="text-2xl">💼</span>
+                <SocialIcon platform="linkedin" size={20} />
                 <span>LinkedIn</span>
               </a>
               <a
@@ -106,8 +108,9 @@ const Footer: React.FC = () => {
                 className={`flex items-center gap-3 transition transform hover:scale-105 ${
                   isDark ? 'text-gray-400 hover:text-cyan-400' : 'text-gray-700 hover:text-blue-600'
                 }`}
+                aria-label="GitHub"
               >
-                <span className="text-2xl">⭐</span>
+                <SocialIcon platform="github" size={20} />
                 <span>GitHub</span>
               </a>
               <a
@@ -117,8 +120,9 @@ const Footer: React.FC = () => {
                 className={`flex items-center gap-3 transition transform hover:scale-105 ${
                   isDark ? 'text-gray-400 hover:text-pink-400' : 'text-gray-700 hover:text-pink-600'
                 }`}
+                aria-label="Instagram"
               >
-                <span className="text-2xl">📷</span>
+                <SocialIcon platform="instagram" size={20} />
                 <span>Instagram</span>
               </a>
               <a
@@ -126,8 +130,9 @@ const Footer: React.FC = () => {
                 className={`flex items-center gap-3 transition transform hover:scale-105 ${
                   isDark ? 'text-gray-400 hover:text-yellow-400' : 'text-gray-700 hover:text-yellow-600'
                 }`}
+                aria-label="Email"
               >
-                <span className="text-2xl">📧</span>
+                <SocialIcon platform="email" size={20} />
                 <span>Email</span>
               </a>
             </div>
