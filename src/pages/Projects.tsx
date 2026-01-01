@@ -92,7 +92,17 @@ const Projects: React.FC = () => {
 
                 {/* Links */}
                 <div className="flex gap-4 pt-6 border-t border-cyan-500 border-opacity-20">
-                  {project.links.github !== "#" && (
+                  {project.links.live && project.links.live !== "#" && (
+                    <a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:from-cyan-500 hover:to-blue-500 transition text-center transform hover:scale-105 border border-cyan-500 border-opacity-30"
+                    >
+                      🌐 Live
+                    </a>
+                  )}
+                  {project.links.github && project.links.github !== "#" && (
                     <a
                       href={project.links.github}
                       target="_blank"

@@ -8,6 +8,7 @@
       "techStack": ["React", "Tailwind CSS", "TypeScript", "Vercel"],
       "features": ["Responsive Design", "Modern UI", "Project Showcase", "Contact Form"],
       "links": {
+        "live": "https://farhan-resume-ashen.vercel.app",
         "github": "https://github.com/farmer-boy/my-portfolio"
       }
     },
